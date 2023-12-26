@@ -1,0 +1,10 @@
+/* FONT FACES */
+@font-face {
+    font-family: logo-font;
+    src: url("assets/fonts/Overthink.ttf");
+}
+
+/* ROOT */
+:root {
+    
+}
