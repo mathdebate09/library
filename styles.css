@@ -1,10 +1,107 @@
 /* FONT FACES */
 @font-face {
-    font-family: logo-font;
-    src: url("assets/fonts/Overthink.ttf");
+    font-family: Logo-font;
+    src: url("assets/fonts/JosefinSans-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: LF-Normal;
+    src: url("assets/fonts/LibreFranklin-Medium.ttf");
+}
+
+@font-face {
+    font-family: LF-Bold;
+    src: url("assets/fonts/LibreFranklin-Bold.ttf");
 }
 
 /* ROOT */
 :root {
-    
+    --header: rgb(149, 149, 146);
+    --bg: #F0F0ED;
+    --strike: #B6B29D;
+    --normal: 'LF-normal', sans-serif;
+    --bold: 'LF-Bold', sans-serif;
+}
+
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* PARENT */
+.container {
+    background-color: var(--bg);
+    display:grid;
+    height: 100vh;
+    grid-template-rows: 1fr 8fr 0.2fr;
+    margin:0 0 0 0;
+    padding:0 0 0 0;
+}
+
+/* HEADER */
+.header {
+    background-color: var(--header);
+    display:grid;
+    grid-template-columns: 0.15fr 1fr 0.3fr;
+    align-items:center;
+    grid-auto-flow: column;
+    border-bottom: 1px dotted black;
+}
+
+/* LOGO */
+.header img {
+    width:40px;
+    justify-self:end;
+    padding-bottom:10px;
+}
+
+.header p {
+    font-size:48px;
+    font-family: 'Logo-font', sans-serif;
+    padding-left:10px;
+    justify-self:start;
+    z-index:3;
+}
+
+.header p u {
+    text-decoration-color: var(--strike); /* Replace with your desired color */
+    z-index:2;
+}
+
+/* ADD BUTTON */
+.add-book {
+    font-family: var(--normal);
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius:8px;
+    background-color: var(--bg);
+    align-self: center;
+    justify-self: start;
+}
+
+/* CARD CONTAINER */
+.card-container {
+    background-color: var(--bg);
+}
+
+/* FOOTER */
+.footer {
+    font-family:var(--normal);
+    align-self:end;
+    justify-self:center;
+    font-size:18px;
+    padding-bottom:5px;
+}
+
+a:hover {
+    text-decoration: underline;
+    font-family:var(--bold);
 }
