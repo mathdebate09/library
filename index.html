@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,29 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/logo.svg" type="image/x-icon">
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <img src="assets/logo.svg">
             <p>library</p>
             <button class="add-book">+ New Book</button>
+            <dialog>
+                <button><img src="assets/dialog/close.svg"></button>
+                <form action="example.com/path" method="post">
+                    <p>Add a New Book</p>
+                    <input type="text" id="book-name" name="book-name" placeholder="Title">
+
+                    <input type="text" id="book-author" name="book-author" placeholder="Author">
+
+                    <input type="number" id="book-pages" name="book-pages" placeholder="Pages">
+
+                    <label for="book-read">Have you read the book?</label>
+                    <input type="checkbox" id="book-read" name="book-read" value="read" unchecked>
+
+                    <button class="submit">Submit</button>
+                </form>
+            </dialog>
         </div>
         <div class="card-container"></div>
         <div class="footer">
@@ -20,4 +38,6 @@
         </div>
     </div>
 </body>
+<script src="script.js"></script>
+
 </html>

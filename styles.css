@@ -41,7 +41,7 @@ a {
     background-color: var(--bg);
     display:grid;
     height: 100vh;
-    grid-template-rows: 1fr 8fr 0.2fr;
+    grid-template-rows: 10vh 8fr 3.5vh;
     margin:0 0 0 0;
     padding:0 0 0 0;
 }
@@ -89,16 +89,63 @@ a {
 
 /* CARD CONTAINER */
 .card-container {
+    padding: 4vh 10vh 2vh 10vh;
     background-color: var(--bg);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    place-items:center;
+}
+
+.card {
+    background-color: #FBFBFB;
+    box-shadow: 0px 0px 10px rgba(149, 149, 146, 0.6); 
+    padding:16px;
+    text-align:center;
+    display:grid;
+    grid-gap:6px;
+    font-family:var(--normal);
+    font-size:17px;
+    width:33vh;
+    height:25vh;
+    border-radius:10px;
+    border:3px solid var(--header);
+    place-items:center;
+}
+
+.card .title {
+    font-family:var(--bold);
+}
+
+.status-toggle, .remove-book {
+    width:122px;
+    font-family:var(--bold);
+    border: none;
+    border-radius:5px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.status-toggle {
+    background-color: #85b582;
+}
+
+.remove-book {
+    background-color: #be615f;
 }
 
 /* FOOTER */
 .footer {
     font-family:var(--normal);
-    align-self:end;
-    justify-self:center;
+    text-align:center;
     font-size:18px;
     padding-bottom:5px;
+    background-color: var(--bg); /* Replace with your color variable */
+    height: 3.5vh; /* Adjust as needed */
+    width: 100%;
 }
 
 a:hover {
