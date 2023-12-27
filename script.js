@@ -28,16 +28,8 @@ Book.prototype.toggle = function () {
 //Dummy inputs for Book()
 myLibrary[0] = new Book("The Design of Everyday Things", "Don Norman", 347, false);
 myLibrary[1] = new Book("Atomic Habits", "James Clear", 306, true);
-myLibrary[2] = new Book("Atomic Habits", "James Clear", 306, true)
-myLibrary[3] = new Book("Atomic Habits", "James Clear", 306, true)
-myLibrary[4] = new Book("Atomic Habits", "James Clear", 306, true)
-myLibrary[5] = new Book("Atomic Habits", "James Clear", 306, true)
-myLibrary[6] = new Book("Atomic Habits", "James Clear", 306, true)
-
-// Generate 10 more dummy content
-for (let i = 7; i < 100; i++) {
-  myLibrary[i] = new Book("Dummy Book " + i, "Dummy Author", 200, true);
-}
+myLibrary[2] = new Book("Don't Make Me Think", "Steve Krug", 216, false);
+myLibrary[3] = new Book("Subtle Art of Not Giving a F**k", "Mark Manson", 224, true);
 
 // Display the dummy inputs
 window.onload = function () {
@@ -98,10 +90,17 @@ function displayBookToLibrary(i) {
     <button class="status-toggle">${myLibrary[i].status}</button>
     <button class="remove-book">Remove</button>`;
 
-  cardParentDiv.appendChild(card);
-
   // Select the status toggle button
   const statusToggle = card.querySelector('.status-toggle');
+
+  // Update the color for the button
+  if (myLibrary[i].status === "Not Read") {
+    statusToggle.style.backgroundColor = "#F7B400";
+  } else {
+    statusToggle.style.backgroundColor = "#85b582";
+  }
+
+  cardParentDiv.appendChild(card);
 
   // Add an event listener to the status toggle button
   statusToggle.addEventListener('click', function () {
@@ -128,7 +127,7 @@ function displayBookToLibrary(i) {
 }
 
 // Selecting the close-button
-const closeButton = document.querySelector("dialog button");
+const closeButton = document.querySelector(".close-button");
 
 // "Close" button closes the dialog
 closeButton.addEventListener("click", () => {

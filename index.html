@@ -13,20 +13,22 @@
     <div class="container">
         <div class="header">
             <img src="assets/logo.svg">
-            <p>library</p>
+            <p class="logo-text">library</p>
             <button class="add-book">+ New Book</button>
             <dialog>
-                <button><img src="assets/dialog/close.svg"></button>
+                <button class="close-button"><img src="assets/dialog/close.svg"></button>
                 <form action="example.com/path" method="post">
-                    <p>Add a New Book</p>
+                    <p class="form-header">Add a New Book</p>
                     <input type="text" id="book-name" name="book-name" placeholder="Title">
 
                     <input type="text" id="book-author" name="book-author" placeholder="Author">
 
                     <input type="number" id="book-pages" name="book-pages" placeholder="Pages">
 
-                    <label for="book-read">Have you read the book?</label>
-                    <input type="checkbox" id="book-read" name="book-read" value="read" unchecked>
+                    <div class="checkbox-form">
+                        <label for="book-read">Have you read the book?</label>
+                        <input type="checkbox" id="book-read" name="book-read" value="read" unchecked>
+                    </div>
 
                     <button class="submit">Submit</button>
                 </form>
