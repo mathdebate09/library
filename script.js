@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, status) {
   this.title = title;
@@ -33,6 +33,7 @@ myLibrary[3] = new Book("Subtle Art of Not Giving a F**k", "Mark Manson", 224, t
 
 // Display the dummy inputs
 window.onload = function () {
+  loadDataFromLocalStorage();
   for (let i = 0; i < myLibrary.length; i++) {
     displayBookToLibrary(i);
   }
@@ -65,6 +66,7 @@ form.addEventListener('submit', function (event) {
   const book = new Book(bookName.value, bookAuthor.value, bookPages.value, bookRead.checked);
 
   myLibrary.push(book);
+  saveDataToLocalStorage();
   myLibrary[myLibrary.length - 1].info();
 
   console.log(myLibrary.length);
@@ -81,6 +83,7 @@ const cardParentDiv = document.querySelector('.card-container');
 
 //Printing to the UI
 function displayBookToLibrary(i) {
+  loadDataFromLocalStorage();
   const card = document.createElement('div');
   card.classList.add('card');
   card.innerHTML = 
@@ -105,6 +108,7 @@ function displayBookToLibrary(i) {
   // Add an event listener to the status toggle button
   statusToggle.addEventListener('click', function () {
     myLibrary[i].toggle();
+    saveDataToLocalStorage();
 
     // Update the text of the button
     statusToggle.textContent = myLibrary[i].status;
@@ -122,9 +126,24 @@ function displayBookToLibrary(i) {
 
   removeButton.addEventListener('click', function() {
     myLibrary.pop(myLibrary[i]);
+    saveDataToLocalStorage();
     cardParentDiv.removeChild(card);
   })
 }
+
+//LocalStorage functions
+function saveDataToLocalStorage() {
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+};
+
+function loadDataFromLocalStorage() {
+  const storedMyLibrary = localStorage.getItem('myLibrary');
+  
+  if (storedMyLibrary) {
+      const parsedMyLibrary = JSON.parse(storedMyLibrary);
+      myLibrary = parsedMyLibrary.map(book => new Book(book.title, book.author, book.pages, book.status === "Read"));
+  }
+};
 
 // Selecting the close-button
 const closeButton = document.querySelector(".close-button");
